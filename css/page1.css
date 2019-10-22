@@ -1,0 +1,64 @@
+#enterc {
+	font-family:  hacked;
+	src: url("../fonts/HACKED.ttf");
+	color: #ffffff;
+
+}
+#logo {
+	height: 15%;
+	width: 15%;
+}
+#p1{
+	padding-top: 100px;
+}
+
+#m1{
+	z-index: 2;
+	font-family:  hacked;
+	src: url("../fonts/HACKED.ttf");
+	font-size: 36px;
+	color: black;
+	text-shadow: 3px 3px white;
+}
+
+
+body{
+	background-color: #1f242e;
+
+}
+
+#m2 {
+	z-index: 1;
+	font-size: 24px;
+	color: #ffffff;
+
+}
+
+.box input[type = "button"]{
+	border: 0;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #2ecc71;
+	padding: 14px 10px;
+	width: 100px;
+	outline: none;
+	color: #ffffff;
+	border-radius: 24px;
+	transition: 0.25s;
+}
+
+.box input[type = "button"]:hover{
+	background: #2ecc71;
+}
+#strip{
+	z-index: 1;
+	background-image: url(../img/dct.jpg);
+  	height: 50px;
+  	background-repeat:repeat-x;
+  	box-shadow:  5px 5px 5px 5px black;
+}
+
+
+

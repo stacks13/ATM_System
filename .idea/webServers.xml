@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0d42680f-e54e-4622-9aef-991bd9b4ada2" name="xamp" url="http://localhost/Project/ATM_System1">
+        <fileTransfer port="0" mountedRoot="C:\xampp\htdocs\Project\ATM_System1" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
