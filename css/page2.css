@@ -178,3 +178,9 @@ h1{
 .boxz input[type = "submit"]:hover{
 	background: #2ecc71;
 }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+

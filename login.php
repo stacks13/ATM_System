@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 
 <?php
+    include_once "include/DB.php";
     $card_details = -1;
     if(isset($_POST['submit'])) {
         $card = $_POST['card'];
         $pin = $_POST['pin'];
-        $conn = new mysqli("localhost", "root", "", "atm_system");
+
         $result = $conn->query("SELECT * FROM card_details WHERE card_no=$card and pin=$pin");
 
-        if($result != false){
+        if($result->num_rows == 1){
             // correct
             $data = $result->fetch_assoc();
             $account_no = $data['account_no'];
             $card_details = 1;
-            setcookie("details", base64_encode("$card||$account_no"), time() + (300), "/");
+            setcookie("details", base64_encode("$card|$account_no"), time() + 300, "/");
             header("Location: actions.php");
         }else{
             // wrong
@@ -37,7 +38,7 @@
 	<form class="box" action="" method="POST">
 		<img id="logo" src="img/lg.png" align="center">
 		<input type="number" name="card" placeholder="Card Number">
-		<input type="password" name="pin" placeholder="PIN">
+		<input type="password" size="4" name="pin" placeholder="PIN">
 
         <?php
             if($card_details == 0){
