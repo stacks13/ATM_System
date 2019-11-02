@@ -11,6 +11,10 @@
 			<marquee id="m2" behavior="scroll" direction="up" scrollamount="10" >$ $ $ $</marquee>
 			<input type="submit" name="" value="ok">
 	</div>
-
+    <script>
+        setTimeout(function () {
+            location.href = 'index.php';
+        }, 2000);
+    </script>
 </body>
 </html>

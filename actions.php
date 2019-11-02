@@ -5,7 +5,7 @@
         die();
     }else {
         $details = explode("|", base64_decode($_COOKIE['details']), 2);
-        print_r($details);
+//        print_r($details);
         if (isset($_POST['tag'])) {
             $action = $_POST['tag'];
             setcookie("details", base64_encode("$details[0]|$details[1]|$action"), time() + 100, "/");
@@ -16,7 +16,9 @@
             } else if($_POST['tag'] == 'Check Balance'){
                 header("Location: balance.php");
             } else if($_POST['tag'] == 'Change PIN'){
-
+                header("Location: change_pin.php");
+            } else if($_POST['tag'] == 'statement'){
+                header("Location: card_statement.php");
             } else if($_POST['tag'] == 'cancel'){
                 header("Location: index.php");
             }
@@ -36,7 +38,9 @@
 		<input type="submit" name="tag" value="Deposit">
 		<input type="submit" name="tag" value="Change PIN">
 		<input type="submit" name="tag" value="Check Balance">
-		<input type="submit" name="tag" value="cancel">
+        <input type="submit" name="tag" value="statement">
+
+        <input type="submit" name="tag" value="cancel">
 		
 	</form>
 </body>

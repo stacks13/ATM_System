@@ -3,13 +3,21 @@
 <?php
     include_once "include/DB.php";
     $card_details = -1;
+    if(isset($_COOKIE['details'])){
+        if(base64_decode($_COOKIE['details']))
+            $card_no_present = true;
+    }
     if(isset($_POST['submit'])) {
-        $card = $_POST['card'];
-        $pin = $_POST['pin'];
 
+        $pin = $_POST['pin'];
+        if(!isset($_POST['card'])){
+            $card = base64_decode($_COOKIE['details']);
+        }else{
+            $card = $_POST['card'];
+        }
         $result = $conn->query("SELECT * FROM card_details WHERE card_no=$card and pin=$pin");
 
-        if($result->num_rows == 1){
+        if($result && $result->num_rows == 1){
             // correct
             $data = $result->fetch_assoc();
             $account_no = $data['account_no'];
@@ -37,12 +45,16 @@
 	
 	<form class="box" action="" method="POST">
 		<img id="logo" src="img/lg.png" align="center">
-		<input type="number" name="card" placeholder="Card Number">
-		<input type="password" size="4" name="pin" placeholder="PIN">
+        <?php if(!isset($card_no_present)) {
+            ?><input type="number" name="card" placeholder="Card Number"><?php
+        }
+        ?>
+
+		<input type="password" size="4" pattern="[0-9]{4}" name="pin" placeholder="PIN">
 
         <?php
             if($card_details == 0){
-                echo "<p style='color: red'>Incorrect password</p>";
+                echo "<p style='color: red'>Invalid Card or PIN</p>";
             }
         ?>
 
